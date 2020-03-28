@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Time and Date-</title>
+	<style type="text/css">
+	
+	.container{
+			width:340px;
+			padding:10px;
+			border:1px solid black;
+			text-align:center;
+			font-family:arial;
+			font-weight:bold;
+			color:#000;
+			border-radius:10px;
+			-webkit-border-radius:10px;
+			-moz-border-radius:10px;	
+			}
+	
+	</style>
+</head>
+<body onLoad="renderTime();">
+
+	<div id="clockDisplay" class="container">Time and Date</div>
+	
+	<script type="text/javascript" src="min.js"></script>
+	<script type="text/javascript">
+	
+	function renderTime(){
+	
+	   //Date
+		var mydate = new Date();
+		var year = mydate.getYear();
+			if(year < 1000){
+			
+				year +=1900;
+			
+			}
+		var day = mydate.getDay();
+		var month = mydate.getMonth();
+		var daym = mydate.getDate();
+		var dayarray = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+		var montharray = new Array("January","February","March","April","May","June","July","August","September","October",    	"November","December");
+		
+		
+		//Time
+		var currentTime = new Date();
+		var h = currentTime.getHours();
+		var m = currentTime.getMinutes();
+		var s = currentTime.getSeconds();
+		var session ="am";
+		
+			if(h == 24){
+				h = 0;
+			} 
+			
+			else if(h > 12){
+				h = h-o;
+			    session ="pm";
+			
+			}
+			 if(h < 10){
+			
+				h = '0'+h;
+			
+			}
+						
+			if(m < 10){
+			
+				m = '0'+m;
+			
+			}
+			
+			if(s < 10){
+			
+				s = '0'+s;
+			
+			}
+			
+			var myClock = document.getElementById("clockDisplay");
+			
+			myClock.textContent = "" +dayarray[day]+ " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+":"+m+":"+s+ 
+			" " +session;
+			
+			myClock.innerText = "" +dayarray[day]+ " " +daym+ " " +montharray[month]+ " " +year+ " | " +h+":"+m+":"+s+
+			" " +session;
+			
+		    setTimeout("renderTime()",1000);
+	}
+	renderTime();
+	
+	
+	</script>
+</body>
+</html>

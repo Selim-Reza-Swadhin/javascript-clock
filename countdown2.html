@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>CountDown-VerkkoNet</title>
+	<style type="text/css">
+	
+	body{
+		background-color:#161616;
+		}
+	
+	.Container{
+						position:absolute;
+						top:50%;
+						left:50%;
+						text-align:center;
+						background:navy;
+						border:1px solid #999;
+						padding:10px;
+						box-shadow:0 0 5px 3px #ccc;						 
+						transform:translate(-50%,-50%);
+						text-transform:uppercase;
+						border-radius:15px;
+						}
+	
+	
+	.inf{
+		font-family:sans-serif;
+		font-size:50px;
+		color:purple;
+		background-color:skyblue;
+		}
+		
+	h2{
+		font-size:50px;
+		/* background:linear-gradient(red,yellow,green,violet,pink,black,hotpink,lightblue); */
+        /* background:linear-gradient(red 10%, green 30%, blue 50%, skyblue 5%, yellow 5%);		 */
+        background:radial-gradient(red 10%, green 30%, blue 50%, skyblue 5%, yellow 5%);		
+		-webkit-background-clip:text;
+		-moz-background-clip:text;
+		-webkit-text-fill-color:transparent;
+		-moz-text-fill-color:transparent;
+		}
+		
+	.din{
+		color: #DE47A7;
+		font-family:arial;
+		font-size:20px;		
+		background-color:lime;
+		}
+		
+	.info{
+		font-family:sans-serif;
+		font-size:80px;
+		color:#C4553D;
+		background-color:#4273D9;
+		}
+		
+
+		
+
+	
+	</style>
+</head>
+<body>
+     
+	<table  class="Container" cellpadding="20px">
+	
+	<tr class="inf">
+		<td colspan="4"><h2>Happy Birthday</h2></td>
+	</tr>
+	
+	<tr class="din">
+		<td>Days</td>
+		<td>Hours</td>
+		<td>Minutes</td>
+		<td>Seconds</td>
+	</tr>
+	
+	<tr class="info">
+	
+	<td id="days"></td>
+	<td id="hours"></td>
+	<td id="minutes"></td>
+	<td id="seconds"></td>
+	
+	</tr>
+	
+	</table>
+	
+	<script type="text/javascript" src="min.js"></script>
+	<script type="text/javascript">
+	
+	function countDown(){
+	
+	var now = new Date();
+	var eventDate = new Date("Oct 11,2020, 11:59:59");
+	
+	var currentTime = now.getTime();
+	var eventTime = eventDate.getTime();
+	
+	var remTime = eventTime - currentTime;
+	
+	var s = Math.floor(remTime/1000);
+	var m = Math.floor(s/60);
+	var h = Math.floor(m/60);
+	var d = Math.floor(h/24);
+	
+	
+	h = h%24;
+	m%=60;
+	s%=60;
+	
+	
+	h = (h<10) ? "0"+h : h;
+	m = (m<10) ? "0"+m : m;
+	s = (s<10) ? "0"+s : s;
+	
+	
+	document.getElementById("days").textContent =d;
+	document.getElementById("days").innerText =d;
+	
+	document.getElementById("hours").innerHTML =h;
+	document.getElementById("minutes").innerHTML =m;
+	document.getElementById("seconds").innerHTML =s;	
+	
+	setTimeout(countDown,1000);
+	}
+	
+	countDown();
+	
+	</script>
+</body>
+</html>

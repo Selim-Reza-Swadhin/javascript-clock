@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Clock-Inertia</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+			line-height: 100vh;
+			font-family: "Source Code Pro";
+			text-align: center;
+
+			transition: all 0.3s ease-in-out;
+		}
+
+		#clock {
+			font-size: 17vw;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="clock">00:00:00</div>
+
+	<script type="text/javascript" src="min.js"></script>
+	<script type="text/javascript">
+		setInterval(clock, 1000);
+
+		function clock() {
+
+			var date = new Date();
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			var session = "am";
+
+			if (hours == 0) {
+
+				hours = 12;
+
+			}
+
+			if (hours > 12) {
+
+				hours = hours - 12;
+				session = "pm";
+			}
+
+			if (minutes < 10) {
+
+				minutes = '0' + minutes;
+
+			}
+
+			if (seconds < 10) {
+
+				seconds = '0' + seconds;
+
+			}
+
+			var ghory = document.getElementById('clock');
+
+			ghory.innerText = hours + ":" + minutes + ":" + seconds + "" + session;
+
+			document.body.style.background = getColor(hours, minutes, seconds);
+
+		}
+
+		function getColor(h, m, s) {
+
+			return "rgb(" + (Math.round(h / 24 * 255)) + "," + (Math.round(m / 60 * 256)) + "," + (Math.round(s / 60 * 257)) +
+				")";
+
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator By shojibur rahman</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+<center><h3>Our Basic Calculator</h3></center>
+<form action="#" name="frm">
+    <input type="text" name="result" placeholder="Enter Your Number"><br>
+    <input type="button" value="1" name="1" onclick="run1()">
+    <input type="button" value="2" name="2" onclick="run2()">
+    <input type="button" value="3" name="3" onclick="run3()">
+    <input type="button" value="+" name="plus" onclick="runPlus()">
+    <input type="button" value="=" name="equ" onclick="equal()">
+    <input type="button" value="clear" name="clear" onclick="runClear()"><br>
+    <input type="button" value="4" name="4" onclick="run4()">
+    <input type="button" value="5" name="5" onclick="run5()">
+    <input type="button" value="6" name="6" onclick="run6()">
+    <input type="button" value="-" name="-" onclick="runMinus()">
+    <input type="button" value="/" name="/" onclick="runVag()">
+    <input type="button" value="*" name="multi" onclick="runMul()">
+    <input type="button" value="7" name="7" onclick="run7()"><br>
+    <input type="button" value="8" name="8" onclick="run8()">
+    <input type="button" value="9" name="9" onclick="run9()">
+    <input type="button" value="0" name="0" onclick="run0()">
+    <input type="button" value="." name="full" onclick="runFull()">
+    <input type="button" value="%" name="module" onclick="runModule()">
+    <input type="button" value="&larr;" onclick="runBack()" />
+    <input type="button"  value="&radic;" onclick="runRoot()"/>
+</form>
+    <script>
+    function run1(){
+        document.frm.result.value += "1";
+    }
+
+    function run2(){
+        document.frm.result.value += "2";
+    }
+
+    function run3(){
+        document.frm.result.value += "3";
+    }
+
+    function runPlus(){
+        document.frm.result.value += "+";
+    }
+
+    function equal(){
+        var finalResult = eval(document.frm.result.value);
+        document.frm.result.value = finalResult;
+    }
+
+    function runClear(){
+        document.frm.result.value = "";
+    }
+
+     function run4(){
+        document.frm.result.value += "4";
+    }
+
+     function run5(){
+        document.frm.result.value += "5";
+    }
+
+    function run6(){
+        document.frm.result.value += "6";
+    }
+
+    function runMinus(){
+        document.frm.result.value += "-";
+    }
+
+    function runVag(){
+        document.frm.result.value += "/";
+    }
+
+    function runMul(){
+        document.frm.result.value += "*";
+    }
+
+    function run7(){
+        document.frm.result.value += "7";
+    }
+
+    function run8(){
+        document.frm.result.value += "8";
+    }
+
+    function run9(){
+        document.frm.result.value += "9";
+    }
+
+    function run0(){
+        document.frm.result.value += "0";
+    }
+    function runFull(){
+        document.frm.result.value += ".";
+    }
+
+    function runModule(){
+        document.frm.result.value += "%";
+    }
+
+    function runRoot(){
+        var root = Math.sqrt(frm.result.value);
+        document.frm.result.value = root;
+    }
+
+    function runBack(){
+        var back = frm.result.value.slice(0, -1);
+        document.frm.result.value = back;
+    }
+    </script>
+</body>
+</html>
